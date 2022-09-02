@@ -16,21 +16,23 @@ import com.epicode.gestioneprenotazioni.model.Postazioni;
 import com.epicode.gestioneprenotazioni.model.Prenotazioni;
 import com.epicode.gestioneprenotazioni.model.TipoPostazione;
 import com.epicode.gestioneprenotazioni.model.Utente;
+import com.epicode.gestioneprenotazioni.repository.PrenotazioniRepository;
 
 @Configuration
 public class PrenotazioniConfig {
 
-	
+	@Autowired
+	private PrenotazioniRepository repoPren;
 
 	@Autowired
-	@Qualifier("posta1")
-	Postazioni posta1;
+	@Qualifier("postazioni")
+	Postazioni posta2;
 
 
 	@Autowired
 	ObjectProvider<Prenotazioni> prenotazioniProvider;
 	
-	@Bean
+	@Bean("prenotazioni1")
 	@Scope("prototype")
 	public Prenotazioni nuovaPrenotazione() {
 		return new Prenotazioni();
@@ -39,8 +41,10 @@ public class PrenotazioniConfig {
 	@Bean("prenotazioni")
 	public Utente utentePronotazioni() {
 		Prenotazioni prenota1 = prenotazioniProvider.getObject();
-		prenota1.setPostazione(posta1);
+		
+		prenota1.setPostazione(posta2);
 		prenota1.setValido(true);
+		repoPren.save(prenota1);
 		
 //		Prenotazioni prenota2 = prenotazioniProvider.getObject();
 //		prenota2.setPostazione(posta1);
@@ -62,6 +66,7 @@ public class PrenotazioniConfig {
 //		prenotazioni.add(prenota4);
 		
 		Utente utente = Utente.builder()
+			
 				.nome("Jim Bean")
 				.username("jeanbean89")
 				.email("jeanbean89@gmail.com")
