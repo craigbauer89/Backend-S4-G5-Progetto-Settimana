@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.epicode.gestioneprenotazioni.model.Postazioni;
+import com.epicode.gestioneprenotazioni.model.TipoPostazione;
 
 
 
@@ -16,6 +17,7 @@ import com.epicode.gestioneprenotazioni.model.Postazioni;
 public interface PostazioniRepository extends JpaRepository<Postazioni, String> {
 
 	public Postazioni findByCodice(String codice);
+	public Postazioni findByTipoPostazione(TipoPostazione tipoPostazione);
 	
 //		
 //@Query("FROM Postazioni WHERE descrizione in ('Panoromic Hudson View')")

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 
 import com.epicode.gestioneprenotazioni.model.Postazioni;
+import com.epicode.gestioneprenotazioni.model.TipoPostazione;
 import com.epicode.gestioneprenotazioni.model.Utente;
 import com.epicode.gestioneprenotazioni.repository.PostazioniRepository;
 import com.epicode.gestioneprenotazioni.service.PrenotazioniService;
@@ -39,6 +40,12 @@ public class PrenotazioniRunner implements ApplicationRunner {
 		
 		
 		System.out.println(PostazioniCercatoPerCodice);
+		
+Postazioni PostazioniCercatoPerTipo= repoPost.findByTipoPostazione(TipoPostazione.PRIVATO);
+		
+		
+		
+		System.out.println(PostazioniCercatoPerTipo);
 		
 		
 	}
