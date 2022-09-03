@@ -7,7 +7,10 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+
+import com.epicode.gestioneprenotazioni.model.Postazioni;
 import com.epicode.gestioneprenotazioni.model.Utente;
+import com.epicode.gestioneprenotazioni.repository.PostazioniRepository;
 import com.epicode.gestioneprenotazioni.service.PrenotazioniService;
 
 import lombok.AllArgsConstructor;
@@ -20,7 +23,8 @@ import lombok.extern.slf4j.Slf4j;
 public class PrenotazioniRunner implements ApplicationRunner {
 	
 	
-	
+	@Autowired
+	private PostazioniRepository repoPost;
 
 	private PrenotazioniService prenotazioniService;
 
@@ -29,6 +33,12 @@ public class PrenotazioniRunner implements ApplicationRunner {
 		
 		log.info("----------Runner:------------");
 		prenotazioniService.stampaVideoPrenotazioni();
+		
+		Postazioni PostazioniCercatoPerCodice= repoPost.findByCodice("AA001");
+		
+		
+		
+		System.out.println(PostazioniCercatoPerCodice);
 		
 		
 	}

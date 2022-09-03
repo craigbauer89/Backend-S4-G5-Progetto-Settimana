@@ -23,11 +23,10 @@ public class PrenotazioniService {
 	
 	
 	
+//	@Autowired
+//	private PostazioniRepository repoPost;
 	
 	
-	
-	@Autowired
-	private UtenteRepository repoUt;
 	
 	
 	
@@ -73,8 +72,8 @@ public class PrenotazioniService {
 //		log.info("Totale Ordine *" +ordine.totaleOrdine());
 		
 		
-		repoUt.save(prenotazioni);
 		
+//		repoPost.findTipo();
 		
 
 	}

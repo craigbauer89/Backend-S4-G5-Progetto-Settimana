@@ -17,9 +17,14 @@ import com.epicode.gestioneprenotazioni.model.Prenotazioni;
 import com.epicode.gestioneprenotazioni.model.TipoPostazione;
 import com.epicode.gestioneprenotazioni.model.Utente;
 import com.epicode.gestioneprenotazioni.repository.PrenotazioniRepository;
+import com.epicode.gestioneprenotazioni.repository.UtenteRepository;
 
 @Configuration
 public class PrenotazioniConfig {
+	
+
+	@Autowired
+	private UtenteRepository repoUt;
 
 	@Autowired
 	private PrenotazioniRepository repoPren;
@@ -72,7 +77,7 @@ public class PrenotazioniConfig {
 				.email("jeanbean89@gmail.com")
 				.prenotazione(prenotazioni)
 				.build();
-		
+		repoUt.save(utente);
 		return utente;
 	
 	}
