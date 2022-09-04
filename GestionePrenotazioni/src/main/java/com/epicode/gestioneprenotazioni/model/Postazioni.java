@@ -1,6 +1,8 @@
 package com.epicode.gestioneprenotazioni.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -16,7 +18,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Postazioni {
-	
+	@Enumerated(EnumType.STRING)
 	private TipoPostazione tipoPostazione;
 	@Id
 	private String codice;

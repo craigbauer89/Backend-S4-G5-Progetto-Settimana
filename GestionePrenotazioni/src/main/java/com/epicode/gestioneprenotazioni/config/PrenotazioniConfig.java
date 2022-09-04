@@ -151,6 +151,38 @@ public class PrenotazioniConfig {
 	
 	}
 	
-
+	@Bean("prenotazioni3")
+	public Utente utentePronotazioni3() {
+		Prenotazioni prenota1 = prenotazioniProvider.getObject();
+		
+		prenota1.setPostazione(posta4);
+		prenota1.setValido(true);
+		repoPren.save(prenota1);
+		
+		Prenotazioni prenota2 = prenotazioniProvider.getObject();
+		prenota2.setPostazione(posta1);
+		prenota2.setValido(true);
+		repoPren.save(prenota2);
+		
+	
+	
+		List<Prenotazioni> prenotazioni = new ArrayList<Prenotazioni>();
+		
+		prenotazioni.add(prenota1);
+		prenotazioni.add(prenota2);
+	
+		
+		
+		Utente utente = Utente.builder()
+			
+				.nome("Owen Hughes")
+				.username("oh67")
+				.email("oh67@yahoo.com")
+				.prenotazione(prenotazioni)
+				.build();
+		repoUt.save(utente);
+		return utente;
+	
+	}
 
 }

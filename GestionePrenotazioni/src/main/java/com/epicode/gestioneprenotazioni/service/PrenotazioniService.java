@@ -53,6 +53,10 @@ public class PrenotazioniService {
 	@Qualifier("prenotazioni2")
 	private Utente prenotazioni2;
 	
+	@Autowired
+	@Qualifier("prenotazioni3")
+	private Utente prenotazioni3;
+	
 
 	public Utente creaPrenotazioni() {
 		return prenotazioni;
@@ -60,6 +64,10 @@ public class PrenotazioniService {
 	
 	public Utente creaPrenotazioni2() {
 		return prenotazioni2;
+	}
+	
+	public Utente creaPrenotazioni3() {
+		return prenotazioni3;
 	}
 	
 	
@@ -75,6 +83,12 @@ public class PrenotazioniService {
 		Utente utente2Prenotazioni  = creaPrenotazioni2();
 		log.info("-----Prenotazioni delle Utente 2-----------");
 		log.info("Prenotazioni *" +utente2Prenotazioni.toString());
+		
+		log.info("-------------------------------");
+		
+		Utente utente3Prenotazioni  = creaPrenotazioni3();
+		log.info("-----Prenotazioni delle Utente 2-----------");
+		log.info("Prenotazioni *" +utente3Prenotazioni.toString());
 		
 		log.info("-------------------------------");
 		
