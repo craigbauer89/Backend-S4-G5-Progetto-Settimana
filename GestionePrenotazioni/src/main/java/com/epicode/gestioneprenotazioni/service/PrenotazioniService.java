@@ -49,17 +49,32 @@ public class PrenotazioniService {
 	@Qualifier("prenotazioni1")
 	private Prenotazioni prenotazioni1;
 	
+	@Autowired
+	@Qualifier("prenotazioni2")
+	private Utente prenotazioni2;
+	
 
 	public Utente creaPrenotazioni() {
 		return prenotazioni;
 	}
 	
+	public Utente creaPrenotazioni2() {
+		return prenotazioni2;
+	}
+	
 	
 	
 	public void stampaVideoPrenotazioni() {
-		Utente prenotazioni  = creaPrenotazioni();
-		log.info("-----Prenotazioni delle Utente-----------");
-		log.info("Prenotazioni *" +prenotazioni.toString());
+		Utente utente1Prenotazioni  = creaPrenotazioni();
+		log.info("-----Prenotazioni delle Utente 1-----------");
+		log.info("Prenotazioni *" +utente1Prenotazioni.toString());
+		
+		log.info("-------------------------------");
+		
+		
+		Utente utente2Prenotazioni  = creaPrenotazioni2();
+		log.info("-----Prenotazioni delle Utente 2-----------");
+		log.info("Prenotazioni *" +utente2Prenotazioni.toString());
 		
 		log.info("-------------------------------");
 		

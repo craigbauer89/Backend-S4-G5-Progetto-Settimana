@@ -7,18 +7,23 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-
+import com.epicode.gestioneprenotazioni.model.Edificio;
 import com.epicode.gestioneprenotazioni.model.Postazioni;
 import com.epicode.gestioneprenotazioni.model.TipoPostazione;
 
 
 
 @Repository
-public interface PostazioniRepository extends JpaRepository<Postazioni, String> {
+public interface PostazioniRepository extends JpaRepository<Postazioni , String> {
 
-	public Postazioni findByCodice(String codice);
-	public Postazioni findByTipoPostazione(TipoPostazione tipoPostazione);
+	public List<Postazioni> findByCodice(String codice);
+	public List<Postazioni> findByTipoPostazione(TipoPostazione tipoPostazione);
 	
+
+// 
+	
+ //, TipoPostazione tipoPostazione);
+
 //		
 //@Query("FROM Postazioni WHERE descrizione in ('Panoromic Hudson View')")
 //public List<Postazioni> findTipo();
